@@ -149,11 +149,13 @@ public:
         //AVL propriamente dito
         //Obtém o pai do pai, para checar problemas de balanceamento
         b = parent->parent;
+        int rbf;
+        int lbf;
         while(b != null) {
             //Checa por rotacao
             switch(b->getBalanceFactor()) {
                 case -2:
-                    int rbf = b->right->getBalanceFactor();
+                    rbf = b->right->getBalanceFactor();
                     //Depuração
                     //cout << "Rotate to left" << endl;
                     if(rbf < 0) {
@@ -164,7 +166,7 @@ public:
                     }
                     break;
                 case 2:
-                    int lbf = b->left->getBalanceFactor();
+                    lbf = b->left->getBalanceFactor();
                     //Depuração
                     //cout << "Rotate to right" << endl;
                     if(lbf > 0) {

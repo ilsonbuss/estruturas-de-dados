@@ -57,11 +57,11 @@ FastList<tbEmpregado*> lista;
 /**
  * Sistema de consulta
  */
-enum {
+enum ConsultaOp {
     IGUAL,
     MENOR,
     MAIOR
-} ConsultaOp;
+};
 
 /**
  * Sistema de consulta
@@ -88,7 +88,7 @@ int cmp_idade(FastList<tbEmpregado*>* a, FastList<tbEmpregado*>* b) {
     return b->peek()->idade - a->peek()->idade;
 }
 int search_idade(FastList<tbEmpregado*>* val) {
-    if(consultaIdade == MENOR) return val->peek()->idade - consultaIdade.valor;
+    if(consultaIdade.op == MENOR) return val->peek()->idade - consultaIdade.valor;
     else return consultaIdade.valor - val->peek()->idade;
 }
 
@@ -104,7 +104,7 @@ int cmp_salario(FastList<tbEmpregado*>* a, FastList<tbEmpregado*>* b) {
  * Função usada para inserir elementos na lista e indexa-los
  */
 void inserir(string nome, int idade, float salario) {
-    tbEmpregado *emp = malloc(sizeof(tbEmpregado));
+    tbEmpregado *emp = (tbEmpregado*) malloc(sizeof(tbEmpregado));
     emp->codEmp = lista.size();
     emp->nome = nome;
     emp->idade = idade;
@@ -118,7 +118,7 @@ void inserir(string nome, int idade, float salario) {
  * Função principal
  */
 void registro_main() {
-
+    
 }
 
 

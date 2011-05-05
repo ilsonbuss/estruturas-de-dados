@@ -23,6 +23,7 @@
                    kind="SOURCE_LOGICAL_FOLDER">
       <itemPath>src/_common.cpp</itemPath>
       <itemPath>src/main.cpp</itemPath>
+      <itemPath>src/registroIndexado.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Arquivos de recurso"
