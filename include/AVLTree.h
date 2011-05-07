@@ -12,6 +12,7 @@
 #include <iostream>
 #include <iomanip>
 #include "AVLBranch.h"
+#include "operators.h"
 
 using namespace std;
 
@@ -42,6 +43,28 @@ class AVLTree {
 
             printTree(b->left, curd + 1);
             printTree(b->right, curd + 1);
+        }
+    }
+
+    //Busca
+    void search(AVLBranch<T>* b, T key, int dif, RelationalOperator rop, void(*findFunc)(T)) {
+        int ldif = b->left ? cmp(key, b->left->data) : 0;
+        int rdif = b->right ? cmp(key, b->right->data) : 0;
+        //Checa se a diferenca esta de acordo com o operador relacional
+        bool found = relationalMatch(rop, dif);
+        //Vai para os filhos procurar
+        if(b->left) search(b->left, key, ldif, rop, findFunc);
+        if(b->right) search(b->right, key, rdif, rop, findFunc);
+        //Se achou, acha a funcao de encontrar
+        if(found) findFunc(b->data);
+    }
+    
+    //Coração da impressao inordem
+    void inOrdem(AVLBranch<T>* b, void(*func)(T)) {
+        if(b) {
+            inOrdem(b->left, func);
+            func(b->data);
+            inOrdem(b->right, func);
         }
     }
 
@@ -201,6 +224,12 @@ public:
         return getBranch(data) != null;
     }
 
+    //Obtém o elemento a partir de uma chave (nota usado para funcoes cmp exclusiva)
+    T get(T key) {
+        AVLBranch<T>* b = getBranch(key);
+        return b ? b->data : null;
+    }
+
     //Retorna um valor a partir de uma chave
     //NOTA: O tipo do valor é generico, deve ser informado e também informar a funcao
     //      que extrai o valor a partir de uma chave
@@ -228,6 +257,16 @@ public:
         }
     }
 
+    //Forma de buscar algo a partir de um operador relacional e uma funcao para encontrar dados achados
+    void search(T key, RelationalOperator rop, void(*findFunc)(T)) {
+        if(root) search(root, key, cmp(key, root->data), rop, findFunc);
+    }
+
+    // Varre a arvore em inOrdem, passando um funcao para realizar algo
+    void inOrder(void(*func)(T)) {
+        inOrder(root, func);
+    }
+
     //Imprime arvore na sequencia in-ordem
     void printInOrder() {
         printInOrdem(root);
@@ -248,6 +287,11 @@ public:
     int getHeight() {
         if(root == null) return -1;
         else return root->getHeight();
+    }
+
+    //Checa se arvore está vazia
+    bool isEmpty() {
+        return getHeight() == -1;
     }
 
     //Imprime arvore
@@ -334,6 +378,11 @@ public:
                 }
 
         } while(choose != 8);
+    }
+
+    //Retorna o ponteiro da funcao comparadora
+    int (*getCmpFunc())(T, T) {
+        return cmp;
     }
 
 };

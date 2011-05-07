@@ -62,6 +62,7 @@ public:
         FastNode<T> *oldNext = next;
         //Atualiza next com o next do oldNext
         next = oldNext->next;
+        next->prev = this;
         //Obtém o dado do nó removido
         T tmpData = oldNext->data;
         //Deleta da memorio o no
@@ -107,6 +108,9 @@ class FastList {
         }
         return p;
     }
+
+    //No usado para iterator
+    FastNode<T> *iterator;
 public:
 
     //Inicia uma lista encadeada
@@ -117,6 +121,8 @@ public:
         last = null;
         //Inicia comparador
         cmp = (int (*)(T, T)) _generic_compare;
+        //Nula o iterator
+        iterator = null;
     }
 
     //Inicia uma lista encadeada
@@ -127,11 +133,13 @@ public:
         last = null;
         //Inicia comparador
         cmp = compareFunction;
+        //Nula o iterator
+        iterator = null;
     }
 
     //Destroi a lista
     ~FastList() {
-        clear();
+        clear(false);
     }
 
     //Checa se a lista está vazia
@@ -267,14 +275,14 @@ public:
     T remove(int i) {
         //Checa bounds
         if(i < 0 || i >= curSize) return null;
-        //Checa se remove o primeiro
-        if(i == 0) return removeFirst();
         //Checa se remove o ultimo
         if(i == curSize - 1) return removeLast();
+        //Checa se remove o primeiro
+        if(i == 0) return removeFirst();
         //Reduz tamanho
         curSize--;
         //Obtém o nó do indice e o remove
-        return getNode(i).removeMe();
+        return getNode(i)->removeMe();
     }
 
     //Obtém o elemento do indice i
@@ -286,6 +294,70 @@ public:
         return getNode(i)->data;
     }
 
+    //Retorna o indice do
+    int indexOf(T data) {
+        if(isEmpty() == false) {
+            int i = 0;
+            FastNode<T> *f = first;
+            FastNode<T> *node = f;
+            do {
+                //Se for igual, achou
+                if(cmp(data, node->data) == 0) return i;
+                //Proximo
+                node = node->next;
+                i++;
+            } while(node != f);
+        }
+        //Chegou aqui retorna -1, pois nao achou
+        return -1;
+    }
+
+    //Checa se contém o dado
+    bool contains(T data) {
+        return indexOf(data) >= 0;
+    }
+    
+    //Comeca o iterator for(l.ibegin(); t = l.inext(); )
+    void ibegin() {
+        while(iterator != null) {
+            //Espera...
+            cout << "Esperando iterador..." << endl;
+        }
+        if(last) iterator = last->next;
+        else iterator = null;
+    }
+    
+    //Pega o proximo iterador, retornando o dado
+    T inext() {
+        T val;
+        if(iterator) {
+            val = iterator->data;
+            
+            if(iterator == last) {
+                iterator = null;
+            } else {
+                iterator = iterator->next;
+            }
+        } else {
+            val = null;
+        }
+        return val;
+    }
+
+    //Remove o elemento atual da iteracao
+    T iremove() {
+        T val = null;
+        FastNode<T>* current = iterator ? iterator->prev : last;
+        val = current->data;
+        if(current == last) {
+            removeLast();
+        } else {
+            curSize--;
+            current->prev->removeAfter();
+        }
+        return val;
+    }
+
 
     //Retorna o ultimo elemento da lista
     T peek() {
@@ -294,8 +366,15 @@ public:
     }
 
     //Limpa a lista
-    void clear() {
-        //TODO: Apagar os operadores
+    void clear(bool deleteElements = true) {
+        if(deleteElements) {
+            T val;
+            for(ibegin(); val = inext(); ) {
+                delete val;
+            }
+        }
+        curSize = 0;
+        last = null;
     }
 
     void shell() {

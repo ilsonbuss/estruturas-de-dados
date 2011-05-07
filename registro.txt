@@ -1,0 +1,246 @@
+Joao das Coves
+42
+800
+Maria das Coves
+40
+1500
+Jose das Coves
+20
+400
+Dom Quixote
+80
+3000
+Chaves
+8
+10
+Seu Madruga
+59
+200
+Dona Florinda
+54
+1500
+Prof Linguica
+56
+1800
+Seu Barriga
+61
+15000
+Silvio Santos
+85
+1e+006
+Xuxa
+60
+500000
+Frodo
+70
+5000
+Raimundo
+67
+900
+Aaron Baron
+50
+3900
+Baron Aaron
+20
+1900
+Carol Aaron
+35
+2900
+David Aaron
+80
+1700
+Euphoria
+20
+200
+Fuuu Meme
+12
+50
+Gordon Fat
+29
+3500
+Halter Catcher
+42
+450
+Isa Tcl/Tk
+16
+22000
+James Gosling
+68
+32000
+Kicker Fierce
+32
+600
+Lumen Nugem
+30
+1600
+Mandela Canela
+24
+300
+Nelson Mandela
+24
+300
+Orion Corion
+21
+3300
+Paron Cain
+22
+400
+Queue Staky
+16
+350
+Ratton
+75
+4200
+Taz
+40
+1100
+Union Purity
+17
+420
+Vespucio Cheater
+550
+1000
+Xena
+27
+6000
+Waion
+64
+650
+Yan Matasuka
+80
+800
+Zagalo
+90
+4000
+Hebe
+92
+4000
+Derci
+103
+4000
+Bot1
+10
+100
+Bot2
+20
+200
+Bot3
+30
+300
+Bot4
+40
+400
+Bot5
+50
+500
+Bot6
+60
+600
+Bot7
+70
+700
+Bot8
+80
+800
+Bot9
+90
+900
+Robot1
+1
+10
+Robot2
+2
+20
+Robot3
+3
+30
+Robot4
+4
+40
+Robot5
+5
+50
+Robot6
+6
+60
+Robot7
+7
+70
+Robot8
+8
+80
+Robot9
+9
+90
+Mario
+40
+900
+Luigi
+38
+800
+Yoshi
+16
+300
+Waluigi
+38
+400
+Wario
+40
+450
+Sonic
+30
+600
+Shadow
+25
+300
+Tails
+29
+500
+Knuckles
+24
+550
+Person1
+43
+244
+Person2
+53
+523
+Person3
+41
+631
+Person4
+67
+435
+Person5
+94
+134
+Person6
+95
+234
+Person7
+23
+634
+Person8
+64
+245
+Person9
+75
+214
+Person10
+53
+642
+Person11
+74
+345
+Person12
+54
+641
+Person13
+76
+356
+Person14
+85
+643
+Person15
+43
+246

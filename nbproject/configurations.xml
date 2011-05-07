@@ -16,6 +16,7 @@
       <itemPath>include/SparseMatrix.h</itemPath>
       <itemPath>include/Stack.h</itemPath>
       <itemPath>include/_common.h</itemPath>
+      <itemPath>include/operators.h</itemPath>
     </logicalFolder>
     <logicalFolder name="SourceFiles"
                    displayName="Arquivos de código-fonte"
@@ -29,6 +30,7 @@
                    displayName="Arquivos de recurso"
                    projectFiles="true"
                    kind="SOURCE_LOGICAL_FOLDER">
+      <itemPath>registro.txt</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
                    displayName="Arquivos de testes"

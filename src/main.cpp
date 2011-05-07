@@ -86,10 +86,10 @@ void btTest() {
 
 int main(int argc, char** argv) {
     //btTest();
-    AVLTree<int> bt;
-    bt.shell();
+    //AVLTree<int> bt;
+    //bt.shell();
 
-    //registro_main();
+    registro_main();
 
 //    int N, M;
 //    cout << "Digite o tamanho da matrix (NxM): ";
